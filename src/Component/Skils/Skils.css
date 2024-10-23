@@ -1,0 +1,31 @@
+/* Skils.css */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (min-width: 640px) { /* md */
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) { /* lg */
+    .grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}

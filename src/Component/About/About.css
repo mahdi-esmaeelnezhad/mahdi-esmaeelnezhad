@@ -1,0 +1,34 @@
+.titleBout {
+    font-size: 2rem;
+    color: #4B5563;
+    margin-bottom: 1.5rem;
+}
+.imgClass {
+    border-radius: 100px !important;     /* retains your styling */
+    height: auto;                        /* dynamic height */
+    width: 100%;                         /* responsive width */
+    max-width: 600px;                    /* max width for larger screens */
+}
+.desBout {
+    text-align: center;
+    font-size: 1.125rem;
+    color: #6B7280;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* برای اضافه کردن انیمیشن به بخش مربوطه */
+@media (prefers-reduced-motion: no-preference) {
+    .desBout {
+        transition: transform 0.3s ease;
+    }
+    .desBout:hover {
+        transform: scale(1.02);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .flexMob {
+      flex-direction: column;
+    }
+  }

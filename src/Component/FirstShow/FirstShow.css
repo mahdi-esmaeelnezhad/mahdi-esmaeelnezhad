@@ -1,0 +1,28 @@
+.titleName{
+    font-size: 64px;
+    font-weight: bold;
+}
+.desName{
+    text-align: justify;
+    font-weight: 500;
+    font-size: 18px;
+}
+.imgName{
+    border-radius: 1000px;
+}
+@media only screen and (max-width: 900px) {
+    .flexMob {
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+    }
+    .titleName{
+        font-size: 32px;
+        font-weight: bold;
+    }
+    .desName{
+        text-align: justify;
+        font-weight: 500;
+        font-size: 16px;
+    }
+  }
