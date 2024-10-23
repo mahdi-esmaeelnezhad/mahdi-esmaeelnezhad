@@ -41,7 +41,7 @@ function About() {
         <div className='flex justify-center'>
         <span className='bg-slate-300 py-2 px-5 rounded-xl font-semibold'>Experince</span>
         </div>
-        <div className="flex flex-wrap justify-center">
+        <div className="flex card-add justify-center">
             {exList.map((experience, index) => (
                 <ExperienceCard key={index} experience={experience} isEven={index % 2 === 0} />
             ))}
