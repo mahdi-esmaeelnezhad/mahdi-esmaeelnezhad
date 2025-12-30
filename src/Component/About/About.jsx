@@ -1,39 +1,131 @@
-import './About.css';
-import { useEffect } from 'react';
-import personalImg from '../../asset/img/code3.avif';    
+import { useEffect, useRef, useState } from 'react';
+import { FaCode, FaLaptopCode, FaUsers, FaRocket } from 'react-icons/fa';
+import { HiAcademicCap, HiBriefcase, HiLightBulb } from 'react-icons/hi';
+
+const stats = [
+    { number: '5+', label: 'Years Experience', icon: HiBriefcase },
+    { number: '20+', label: 'Projects Completed', icon: FaRocket },
+    { number: '6', label: 'Companies Worked', icon: FaUsers },
+    { number: '10+', label: 'Technologies', icon: FaCode },
+];
+
+const highlights = [
+    { icon: FaLaptopCode, title: 'Frontend Expert', description: 'Specialized in React, Vue.js, and modern JavaScript frameworks with focus on performance and UX.', color: 'from-primary-500 to-primary-600' },
+    { icon: HiAcademicCap, title: 'Self-Taught Developer', description: 'Started coding journey through online resources and transformed passion into professional expertise.', color: 'from-accent-cyan to-blue-500' },
+    { icon: HiLightBulb, title: 'Problem Solver', description: 'Love tackling complex challenges and turning innovative ideas into elegant, scalable solutions.', color: 'from-accent-purple to-pink-500' },
+];
 
 function About() {
+    const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef(null);
+
     useEffect(() => {
-    }, []); 
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
 
     return (
-        <div className='container mx-auto py-16'>
-            <div className=''> 
-
-            <div className='flex justify-center'>
-                <span className='bg-slate-300 py-2 px-5 rounded-xl font-semibold text-lg'>About</span>
+        <section ref={sectionRef} className="relative py-24 overflow-hidden">
+            <div className="absolute inset-0 bg-theme-secondary">
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent"></div>
             </div>
-            <div className='flex flex-row flexMob justify-around items-center p-5'>
-                <div className='w-full md:w-6/12 p-4'>
-                    <img src={personalImg} alt="Mehdi" className="imgClass rounded-lg shadow-lg mb-4 w-full h-auto" />
+
+            <div className="container mx-auto px-4 relative z-10">
+                <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <span className="inline-block px-4 py-2 rounded-full glass-light text-primary-500 text-sm font-medium mb-4">
+                        About Me
+                    </span>
+                    <h2 className="section-title">
+                        <span className="text-theme-primary">Get to Know </span>
+                        <span className="gradient-text">Me Better</span>
+                    </h2>
+                    <p className="section-subtitle">
+                        A passionate developer who turned curiosity into a career
+                    </p>
                 </div>
-                <div className='w-full md:w-6/12 p-4'>
-                    <h1 className='desAbout text-2xl font-bold mb-4'>Curious about me? Have you heard it:</h1>
-                    <p className='text-lg leading-relaxed text-gray-700'>Born in April 1999, I discovered my passion for veterinary medicine as a student at the university and decided to continue my studies in this field. However, while in my first semester, I gradually realized that my true interests lay elsewhere—especially in the world of programming. One day, while browsing YouTube, I came across videos that enthusiastically explained programming tutorials. Not only was I eager to learn, but I also felt I had a talent for it.
 
-Motivated by those first videos, I decided to immerse myself in this fascinating world. I spent consecutive days and nights learning, and every time I wrote a code and succeeded, I felt I had taken a step forward. During this time, I received small projects from my classmates and friends, which gave me more confidence and gradually improved my skills.
+                <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                    <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+                        <div className="glass rounded-2xl p-8">
+                            <h3 className="text-2xl font-bold text-theme-primary mb-6 flex items-center gap-3">
+                                <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-cyan flex items-center justify-center">
+                                    📖
+                                </span>
+                                My Story
+                            </h3>
+                            <div className="space-y-4 text-theme-secondary leading-relaxed">
+                                <p>
+                                    Born in April 1999, I initially pursued <span className="text-primary-500">Veterinary Medicine</span> but 
+                                    discovered my true passion lay elsewhere — in the world of <span className="text-accent-cyan">programming</span>.
+                                </p>
+                                <p>
+                                    One day, while browsing YouTube, I stumbled upon coding tutorials that ignited a spark within me. 
+                                    I spent countless days and nights learning, and every successful line of code felt like a victory.
+                                </p>
+                                <p>
+                                    This journey led me through amazing opportunities — from <span className="text-accent-purple">Amirkabir University</span> projects 
+                                    to major startups in petrochemical and transportation sectors. Each experience shaped me into the 
+                                    developer I am today.
+                                </p>
+                                <p>
+                                    Now, with <span className="text-primary-500 font-semibold">5+ years of experience</span>, I specialize in building 
+                                    modern web applications with React, Vue.js, and even Blazor for full-stack solutions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
-These efforts soon bore fruit, and I found an amazing opportunity to collaborate with an automotive organization. This was a turning point in my life. I stepped into a new world and encouraged others to learn programming. Working in this field allowed me to express my creativity and turn my innovative ideas into reality.
+                    <div className={`space-y-6 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+                        {highlights.map((item, index) => (
+                            <div 
+                                key={index}
+                                className="glass rounded-2xl p-6 card-hover group"
+                                style={{ animationDelay: `${index * 0.1}s` }}
+                            >
+                                <div className="flex items-start gap-4">
+                                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                                        <item.icon className="text-2xl text-white" />
+                                    </div>
+                                    <div>
+                                        <h4 className="text-lg font-bold text-theme-primary mb-2">{item.title}</h4>
+                                        <p className="text-theme-secondary text-sm leading-relaxed">{item.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
-With increased motivation and new experiences, I joined Sharif University of Technology to work in one of the major startups in the petrochemical sector. The project I worked on offered me the chance to learn new techniques and manage complex projects. This project not only gave me a deeper understanding of the industry's challenges but also showed me how much I could grow in this path.
-
-Now, as Mehdi Esmaeilnejad, I am a committed web developer with over 5 years of practical experience in building and maintaining web applications. As a self-taught programmer, I take pride in my high capacity in modern technologies like React and Blazor and have managed a variety of projects, from dynamic user interfaces to full-stack applications. In every project, I not only focus on solving problems but continue to learn and grow with great enthusiasm.
-
-I am currently seeking an opportunity to join a professional team where I can leverage my experiences and expertise and develop my knowledge in a collaborative environment. I believe that with diligence and continuous learning, I can achieve great success and help the developer community explore new frontiers. This journey in the world of code and programming continues, and I eagerly await my next steps.</p>            
+                <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 transition-all duration-700 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    {stats.map((stat, index) => (
+                        <div key={index} className="glass rounded-2xl p-6 text-center card-hover group">
+                            <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-cyan/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <stat.icon className="text-2xl text-primary-500" />
+                            </div>
+                            <div className="text-3xl font-bold gradient-text mb-2">
+                                {stat.number}
+                            </div>
+                            <div className="text-theme-secondary text-sm">
+                                {stat.label}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
-            </div>
-        </div>
+        </section>
     );
 }
 

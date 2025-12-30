@@ -1,53 +1,183 @@
-import './Experince.css'
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { HiExternalLink, HiLocationMarker, HiCalendar, HiBriefcase, HiArrowRight } from 'react-icons/hi';
+import exList from './ExperinceList';
 
-// import personalImg from '../../asset/img/personalImg.jpeg';   
-import exList from './ExperinceList'; 
-const ExperienceCard = ({ experience }) => {
+const ExperienceCard = ({ experience, index, isVisible, isLast }) => {
+    const isEven = index % 2 === 0;
+    
     return (
-        <div className="card max-w-sm rounded overflow-hidden shadow-lg m-4">
-            <img className="w-full h-40 object-cover" src={experience.img} alt={experience.compony} />
-            <div className="card-content px-6 py-4">
-                <div className="font-bold text-xl mb-2">{experience.compony}</div>
-                <p className="text-gray-700 text-base">{experience.position} | {experience.city}</p>
-                <p className="text-gray-600 text-sm">{experience.date}</p>
-                <p className="text-gray-500 text-base mt-2">{experience.describe}</p>
-            </div>
-            <div className="px-6 pt-4 pb-2">
-                <span className="inline-block rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    Skills:
-                </span>
-                {experience.skil.map(skill => (
-                    <span key={skill} className="inline-block bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-blue-700 mr-2 mb-2">
-                        {skill}
-                    </span>
-                ))}
-            </div>
-            <div className="px-6 pb-4">
-                <a href={experience.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700 font-bold">
-                    View Project
-                </a>
+        <div className="relative">
+            {!isLast && (
+                <div className="absolute left-6 md:left-1/2 top-16 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 via-accent-cyan to-primary-500/30 md:-translate-x-1/2"></div>
+            )}
+            
+            <div className={`flex flex-col md:flex-row items-start md:items-center gap-8 ${
+                isEven ? 'md:flex-row' : 'md:flex-row-reverse'
+            }`}>
+                <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 z-20">
+                    <div className={`relative transition-all duration-700 ${isVisible ? 'scale-100' : 'scale-0'}`} style={{ transitionDelay: `${index * 150}ms` }}>
+                        <div className="absolute -inset-2 bg-gradient-to-r from-primary-500 to-accent-cyan rounded-full opacity-30 blur-md animate-pulse"></div>
+                        <div className="relative w-12 h-12 rounded-full bg-theme-card border-4 border-primary-500 flex items-center justify-center shadow-glow-green">
+                            <HiBriefcase className="text-primary-500 text-lg" />
+                        </div>
+                    </div>
+                </div>
+
+                <div className={`w-full md:w-5/12 ml-20 md:ml-0 transition-all duration-700 ${
+                    isVisible 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 translate-y-10'
+                } ${isEven ? 'md:pr-16 md:text-right' : 'md:pl-16 md:text-left'}`}
+                style={{ transitionDelay: `${index * 150 + 100}ms` }}>
+                    
+                    <div className="glass rounded-2xl p-6 hover:bg-primary-500/5 transition-all duration-300 group relative overflow-hidden">
+                        <div className={`absolute top-0 ${isEven ? 'right-0' : 'left-0'} w-1 h-full bg-gradient-to-b from-primary-500 via-accent-cyan to-accent-purple`}></div>
+                        
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-500/10 border border-primary-500/20 mb-4">
+                            <HiCalendar className="text-primary-500 text-sm" />
+                            <span className="text-sm font-medium text-primary-500">{experience.date}</span>
+                        </div>
+
+                        <h3 className="text-xl font-bold text-theme-primary mb-2 group-hover:text-primary-500 transition-colors">
+                            {experience.compony}
+                        </h3>
+                        
+                        <div className={`flex items-center gap-3 mb-4 text-sm text-theme-secondary ${isEven ? 'md:justify-end' : 'md:justify-start'} flex-wrap`}>
+                            <span className="px-3 py-1 rounded-lg bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20">
+                                {experience.position}
+                            </span>
+                            <div className="flex items-center gap-1">
+                                <HiLocationMarker className="text-accent-purple" />
+                                <span>{experience.city}</span>
+                            </div>
+                        </div>
+
+                        <p className={`text-theme-secondary text-sm leading-relaxed mb-5 ${isEven ? 'md:text-right' : 'md:text-left'}`}>
+                            {experience.describe}
+                        </p>
+
+                        <div className={`flex flex-wrap gap-2 mb-5 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
+                            {experience.skil.map((skill) => (
+                                <span 
+                                    key={skill} 
+                                    className="px-3 py-1 text-xs font-medium rounded-lg bg-black/5 dark:bg-white/5 text-theme-secondary border border-black/10 dark:border-white/10 hover:border-primary-500/50 hover:text-primary-500 transition-colors"
+                                >
+                                    {skill}
+                                </span>
+                            ))}
+                        </div>
+
+                        <a 
+                            href={experience.link}
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className={`inline-flex items-center gap-2 text-sm font-medium text-primary-500 hover:text-primary-400 transition-colors group/link ${isEven ? 'md:flex-row-reverse' : ''}`}
+                        >
+                            <span>Visit Website</span>
+                            <HiExternalLink className="transition-transform group-hover/link:translate-x-1" />
+                        </a>
+                    </div>
+                </div>
+
+                <div className="hidden md:block md:w-5/12"></div>
             </div>
         </div>
     );
 };
 
-function About() {
+function Experience() {
+    const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef(null);
+
     useEffect(() => {
-    }, []); 
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
+    const sortedExperiences = [...exList].reverse();
 
     return (
-        <div className=' container mx-auto py-16 '>
-        <div className='flex justify-center'>
-        <span className='bg-slate-300 py-2 px-5 rounded-xl font-semibold'>Experince</span>
-        </div>
-        <div className="flex card-add justify-center">
-            {exList.map((experience, index) => (
-                <ExperienceCard key={index} experience={experience} isEven={index % 2 === 0} />
-            ))}
-        </div>
-        </div>
+        <section ref={sectionRef} className="relative py-24 overflow-hidden">
+            <div className="absolute inset-0 bg-theme-secondary">
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent"></div>
+                
+                <div className="absolute top-20 left-10 w-72 h-72 bg-primary-500/10 dark:bg-primary-500/5 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-20 right-10 w-72 h-72 bg-accent-cyan/10 dark:bg-accent-cyan/5 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent-purple/10 dark:bg-accent-purple/5 rounded-full blur-3xl"></div>
+            </div>
+
+            <div className="container mx-auto px-4 relative z-10">
+                <div className={`text-center mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <span className="inline-block px-4 py-2 rounded-full glass-light text-primary-500 text-sm font-medium mb-4">
+                        Work Experience
+                    </span>
+                    <h2 className="section-title">
+                        <span className="text-theme-primary">My Professional </span>
+                        <span className="gradient-text">Journey</span>
+                    </h2>
+                    <p className="section-subtitle">
+                        A timeline of my career growth and the companies I've had the pleasure to work with
+                    </p>
+                    
+                    <div className="flex items-center justify-center gap-3 mt-8">
+                        <div className="h-px w-16 bg-gradient-to-r from-transparent to-primary-500"></div>
+                        <span className="text-primary-500 text-sm font-medium">Start of Journey</span>
+                        <HiArrowRight className="text-primary-500 animate-pulse" />
+                    </div>
+                </div>
+
+                <div className="relative space-y-16 md:space-y-24">
+                    {sortedExperiences.map((experience, index) => (
+                        <ExperienceCard 
+                            key={index}
+                            experience={experience}
+                            index={index}
+                            isVisible={isVisible}
+                            isLast={index === sortedExperiences.length - 1}
+                        />
+                    ))}
+                </div>
+
+                <div className={`mt-20 text-center transition-all duration-700 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <div className="inline-flex flex-col items-center">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-500 to-accent-cyan flex items-center justify-center mb-4 shadow-glow-green animate-pulse">
+                            <span className="text-2xl">🚀</span>
+                        </div>
+                        <span className="text-primary-500 font-medium mb-2">Present Day</span>
+                        <p className="text-theme-secondary max-w-md">
+                            Currently leading frontend projects and always open to new opportunities
+                        </p>
+                    </div>
+                    
+                    <div className="mt-10">
+                        <p className="text-theme-muted mb-4">
+                            Interested in working together?
+                        </p>
+                        <a 
+                            href="#contact" 
+                            className="btn-primary inline-flex items-center gap-2"
+                        >
+                            Let's Connect
+                            <HiArrowRight />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 }
 
-export default About;
+export default Experience;

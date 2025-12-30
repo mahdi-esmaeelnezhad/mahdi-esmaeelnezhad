@@ -1,86 +1,159 @@
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItems, MenuItem  } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import React from "react";
-
-
+import { useEffect, useState } from 'react';
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { HiDownload, HiSun, HiMoon } from 'react-icons/hi';
+import { useTheme } from '../../context/ThemeContext';
+import cvFile from '../../asset/pdf/Mahdi-Esmaeelnezhad.cv (1).pdf';
 
 const navigation = [
-  { name: 'Download CV', href: '../../asset/pdf/mahdiCV.pdf', current: true, isDownload: true },
-  { name: 'About', href: '#about', current: false },
-  { name: 'Skills', href: '#skills', current: false },
-  { name: 'Experience', href: '#experience', current: false },
-  { name: 'Contact', href: '#contact', current: false },
+  { name: 'Home', href: '#home' },
+  { name: 'About', href: '#about' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Contact', href: '#contact' },
 ];
 
-
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
-export default function Example() {
-    const [dark, setDark] = React.useState(false);
-
-    const darkModeHandler = () => {
-        setDark(!dark);
-        document.body.classList.toggle("dark");
-    }
+const ThemeToggle = ({ isDark, toggleTheme, isMobile = false }) => {
   return (
-      <div className="bg-with-100 ">
-    <Disclosure as="nav" className="dark:bg-stone-800" >
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            {/* Mobile menu button*/}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-              <span className="absolute -inset-0.5" />  
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon aria-hidden="true" className="block h-6 w-6 group-data-[open]:hidden" />
-              <XMarkIcon aria-hidden="true" className="hidden h-6 w-6 group-data-[open]:block" />
-            </DisclosureButton>
-           </div>
-        <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
+    <div className={`flex items-center gap-1 p-1 rounded-xl glass ${isMobile ? 'w-full justify-center' : ''}`}>
+      <button
+        onClick={() => !isDark || toggleTheme()}
+        className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+          !isDark 
+            ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white shadow-md' 
+            : 'text-theme-secondary hover:text-theme-primary hover:bg-black/5 dark:hover:bg-white/5'
+        }`}
+      >
+        <HiSun className={`text-lg ${!isDark ? 'text-white' : 'text-yellow-500'}`} />
+        <span>Light</span>
+      </button>
+      <button
+        onClick={() => isDark || toggleTheme()}
+        className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+          isDark 
+            ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-md' 
+            : 'text-theme-secondary hover:text-theme-primary hover:bg-black/5 dark:hover:bg-white/5'
+        }`}
+      >
+        <HiMoon className={`text-lg ${isDark ? 'text-white' : 'text-indigo-500'}`} />
+        <span>Dark</span>
+      </button>
+    </div>
+  );
+};
+
+export default function NavBar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const { isDark, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+      const sections = ['home', 'about', 'skills', 'experience', 'contact'];
+      for (const section of sections.reverse()) {
+        const element = document.getElementById(section);
+        if (element && window.scrollY >= element.offsetTop - 100) {
+          setActiveSection(section);
+          break;
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <Disclosure as="nav" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      scrolled ? 'glass shadow-lg' : 'bg-transparent'
+    }`}>
+      {({ open }) => (
+        <>
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between h-20">
+              <a href="#home" className="flex items-center gap-2 group">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-cyan flex items-center justify-center text-white font-bold text-xl transition-transform duration-300 group-hover:scale-110">
+                  M
+                </div>
+                <span className="text-xl font-heading font-bold text-theme-primary hidden sm:block">
+                  Mahdi<span className="text-primary-500">.</span>
+                </span>
+              </a>
+
+              <div className="hidden lg:flex items-center gap-1">
                 {navigation.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    aria-current={item.current ? 'page' : undefined}
-                    className={classNames(
-                      item.current ? 'bg-gray-900 text-white dark:text-black dark:bg-white' : 'text-black hover:bg-slate-100 hover:dark:bg-stone-700 ',
-                      'rounded-md px-3 py-2 text-sm font-medium dark:text-white',
-                    )}
+                    className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group ${
+                      activeSection === item.href.substring(1)
+                        ? 'text-primary-500'
+                        : 'text-theme-secondary hover:text-theme-primary'
+                    }`}
                   >
                     {item.name}
+                    <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-primary-500 transition-all duration-300 rounded-full ${
+                      activeSection === item.href.substring(1) ? 'w-6' : 'w-0 group-hover:w-4'
+                    }`}></span>
                   </a>
                 ))}
               </div>
+
+              <div className="hidden lg:flex items-center gap-3">
+                <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
+                <a
+                  href={cvFile}
+                  download="Mahdi-Esmaeelnezhad-CV.pdf"
+                  className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:shadow-glow-green transition-all duration-300 hover:-translate-y-0.5"
+                >
+                  <HiDownload className="text-lg" />
+                  <span>Download CV</span>
+                </a>
+              </div>
+
+              <div className="flex lg:hidden items-center gap-2">
+                <DisclosureButton className="inline-flex items-center justify-center p-2 rounded-xl text-theme-secondary hover:text-theme-primary hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                  <span className="sr-only">Open main menu</span>
+                  {open ? <XMarkIcon className="block h-6 w-6" /> : <Bars3Icon className="block h-6 w-6" />}
+                </DisclosureButton>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <DisclosurePanel className="sm:hidden">
-        <div className="space-y-1 px-2 pb-3 pt-2">
-          {navigation.map((item) => (
-            <DisclosureButton
-              key={item.name}
-              as="a"
-              href={item.href}
-              aria-current={item.current ? 'page' : undefined}
-              className={classNames(
-                item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                'block rounded-md px-3 py-2 text-base font-medium',
-              )}
-            >
-              {item.name}
-            </DisclosureButton>
-          ))}
-        </div>
-      </DisclosurePanel>
+          <DisclosurePanel className="lg:hidden glass border-t border-black/10 dark:border-white/10">
+            <div className="px-4 py-4 space-y-2">
+              {navigation.map((item) => (
+                <DisclosureButton
+                  key={item.name}
+                  as="a"
+                  href={item.href}
+                  className={`block px-4 py-3 text-base font-medium rounded-xl transition-all duration-300 ${
+                    activeSection === item.href.substring(1)
+                      ? 'bg-primary-500/20 text-primary-500'
+                      : 'text-theme-secondary hover:bg-black/5 dark:hover:bg-white/5 hover:text-theme-primary'
+                  }`}
+                >
+                  {item.name}
+                </DisclosureButton>
+              ))}
+
+              <div className="pt-2 pb-2">
+                <p className="text-theme-muted text-sm mb-2 text-center">Select Theme</p>
+                <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} isMobile={true} />
+              </div>
+
+              <a
+                href={cvFile}
+                download="Mahdi-Esmaeelnezhad-CV.pdf"
+                className="flex items-center justify-center gap-2 mt-4 px-5 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl"
+              >
+                <HiDownload className="text-lg" />
+                <span>Download CV</span>
+              </a>
+            </div>
+          </DisclosurePanel>
+        </>
+      )}
     </Disclosure>
-    </div>
-
-  )
+  );
 }

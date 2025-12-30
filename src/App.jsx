@@ -1,10 +1,12 @@
-
 import './App.css';
 import Home from './page/Home/Home';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   return (
-    <Home />
+    <ThemeProvider>
+      <Home />
+    </ThemeProvider>
   );
 }
 
