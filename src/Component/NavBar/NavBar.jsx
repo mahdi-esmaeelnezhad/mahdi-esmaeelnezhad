@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { HiDownload, HiSun, HiMoon } from 'react-icons/hi';
+import { IoGameController } from 'react-icons/io5';
 import { useTheme } from '../../context/ThemeContext';
 import cvFile from '../../asset/pdf/Mahdi-Esmaeelnezhad.cv (1).pdf';
+import DinoGame from '../Game/DinoGame';
 
 const navigation = [
   { name: 'Home', href: '#home' },
@@ -45,6 +47,7 @@ const ThemeToggle = ({ isDark, toggleTheme, isMobile = false }) => {
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [showGame, setShowGame] = useState(false);
   const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -64,96 +67,121 @@ export default function NavBar() {
   }, []);
 
   return (
-    <Disclosure as="nav" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      scrolled ? 'glass shadow-lg' : 'bg-transparent'
-    }`}>
-      {({ open }) => (
-        <>
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between h-20">
-              <a href="#home" className="flex items-center gap-2 group">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-cyan flex items-center justify-center text-white font-bold text-xl transition-transform duration-300 group-hover:scale-110">
-                  M
-                </div>
-                <span className="text-xl font-heading font-bold text-theme-primary hidden sm:block">
-                  Mahdi<span className="text-primary-500">.</span>
-                </span>
-              </a>
+    <>
+      <Disclosure as="nav" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? 'glass shadow-lg' : 'bg-transparent'
+      }`}>
+        {({ open }) => (
+          <>
+            <div className="container mx-auto px-4">
+              <div className="flex items-center justify-between h-20">
+                <a href="#home" className="flex items-center gap-2 group">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-cyan flex items-center justify-center text-white font-bold text-xl transition-transform duration-300 group-hover:scale-110">
+                    M
+                  </div>
+                  <span className="text-xl font-heading font-bold text-theme-primary hidden sm:block">
+                    Mahdi<span className="text-primary-500">.</span>
+                  </span>
+                </a>
 
-              <div className="hidden lg:flex items-center gap-1">
-                {navigation.map((item) => (
+                <div className="hidden lg:flex items-center gap-1">
+                  {navigation.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group ${
+                        activeSection === item.href.substring(1)
+                          ? 'text-primary-500'
+                          : 'text-theme-secondary hover:text-theme-primary'
+                      }`}
+                    >
+                      {item.name}
+                      <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-primary-500 transition-all duration-300 rounded-full ${
+                        activeSection === item.href.substring(1) ? 'w-6' : 'w-0 group-hover:w-4'
+                      }`}></span>
+                    </a>
+                  ))}
+                  {/* Game Button */}
+                  <button
+                    onClick={() => setShowGame(true)}
+                    className="relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group text-theme-secondary hover:text-theme-primary flex items-center gap-1"
+                  >
+                    <IoGameController className="text-lg" />
+                    <span>Game</span>
+                    <span className="absolute -top-1 -right-1 w-2 h-2 bg-primary-500 rounded-full animate-pulse"></span>
+                  </button>
+                </div>
+
+                <div className="hidden lg:flex items-center gap-3">
+                  <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
                   <a
+                    href={cvFile}
+                    download="Mahdi-Esmaeelnezhad-CV.pdf"
+                    className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:shadow-glow-green transition-all duration-300 hover:-translate-y-0.5"
+                  >
+                    <HiDownload className="text-lg" />
+                    <span>Download CV</span>
+                  </a>
+                </div>
+
+                <div className="flex lg:hidden items-center gap-2">
+                  <DisclosureButton className="inline-flex items-center justify-center p-2 rounded-xl text-theme-secondary hover:text-theme-primary hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                    <span className="sr-only">Open main menu</span>
+                    {open ? <XMarkIcon className="block h-6 w-6" /> : <Bars3Icon className="block h-6 w-6" />}
+                  </DisclosureButton>
+                </div>
+              </div>
+            </div>
+
+            <DisclosurePanel className="lg:hidden glass border-t border-black/10 dark:border-white/10">
+              <div className="px-4 py-4 space-y-2">
+                {navigation.map((item) => (
+                  <DisclosureButton
                     key={item.name}
+                    as="a"
                     href={item.href}
-                    className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group ${
+                    className={`block px-4 py-3 text-base font-medium rounded-xl transition-all duration-300 ${
                       activeSection === item.href.substring(1)
-                        ? 'text-primary-500'
-                        : 'text-theme-secondary hover:text-theme-primary'
+                        ? 'bg-primary-500/20 text-primary-500'
+                        : 'text-theme-secondary hover:bg-black/5 dark:hover:bg-white/5 hover:text-theme-primary'
                     }`}
                   >
                     {item.name}
-                    <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-primary-500 transition-all duration-300 rounded-full ${
-                      activeSection === item.href.substring(1) ? 'w-6' : 'w-0 group-hover:w-4'
-                    }`}></span>
-                  </a>
+                  </DisclosureButton>
                 ))}
-              </div>
 
-              <div className="hidden lg:flex items-center gap-3">
-                <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} />
+                {/* Mobile Game Button */}
+                <DisclosureButton
+                  as="button"
+                  onClick={() => setShowGame(true)}
+                  className="w-full flex items-center gap-2 px-4 py-3 text-base font-medium rounded-xl transition-all duration-300 text-theme-secondary hover:bg-black/5 dark:hover:bg-white/5 hover:text-theme-primary"
+                >
+                  <IoGameController className="text-xl" />
+                  <span>Play Game</span>
+                  <span className="ml-auto px-2 py-0.5 bg-primary-500/20 text-primary-500 text-xs rounded-full">New</span>
+                </DisclosureButton>
+
+                <div className="pt-2 pb-2">
+                  <p className="text-theme-muted text-sm mb-2 text-center">Select Theme</p>
+                  <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} isMobile={true} />
+                </div>
+
                 <a
                   href={cvFile}
                   download="Mahdi-Esmaeelnezhad-CV.pdf"
-                  className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:shadow-glow-green transition-all duration-300 hover:-translate-y-0.5"
+                  className="flex items-center justify-center gap-2 mt-4 px-5 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl"
                 >
                   <HiDownload className="text-lg" />
                   <span>Download CV</span>
                 </a>
               </div>
+            </DisclosurePanel>
+          </>
+        )}
+      </Disclosure>
 
-              <div className="flex lg:hidden items-center gap-2">
-                <DisclosureButton className="inline-flex items-center justify-center p-2 rounded-xl text-theme-secondary hover:text-theme-primary hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
-                  <span className="sr-only">Open main menu</span>
-                  {open ? <XMarkIcon className="block h-6 w-6" /> : <Bars3Icon className="block h-6 w-6" />}
-                </DisclosureButton>
-              </div>
-            </div>
-          </div>
-
-          <DisclosurePanel className="lg:hidden glass border-t border-black/10 dark:border-white/10">
-            <div className="px-4 py-4 space-y-2">
-              {navigation.map((item) => (
-                <DisclosureButton
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={`block px-4 py-3 text-base font-medium rounded-xl transition-all duration-300 ${
-                    activeSection === item.href.substring(1)
-                      ? 'bg-primary-500/20 text-primary-500'
-                      : 'text-theme-secondary hover:bg-black/5 dark:hover:bg-white/5 hover:text-theme-primary'
-                  }`}
-                >
-                  {item.name}
-                </DisclosureButton>
-              ))}
-
-              <div className="pt-2 pb-2">
-                <p className="text-theme-muted text-sm mb-2 text-center">Select Theme</p>
-                <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} isMobile={true} />
-              </div>
-
-              <a
-                href={cvFile}
-                download="Mahdi-Esmaeelnezhad-CV.pdf"
-                className="flex items-center justify-center gap-2 mt-4 px-5 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl"
-              >
-                <HiDownload className="text-lg" />
-                <span>Download CV</span>
-              </a>
-            </div>
-          </DisclosurePanel>
-        </>
-      )}
-    </Disclosure>
+      {/* Game Modal */}
+      {showGame && <DinoGame onClose={() => setShowGame(false)} />}
+    </>
   );
 }
