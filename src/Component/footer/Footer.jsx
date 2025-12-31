@@ -50,40 +50,40 @@ function Footer() {
     };
 
     return (
-        <footer ref={sectionRef} className="relative overflow-hidden">
-            <div className="bg-theme-secondary pt-24 pb-12">
+        <footer ref={sectionRef} id="contact" className="relative overflow-hidden">
+            <div className="bg-theme-secondary pt-16 sm:pt-24 pb-8 sm:pb-12">
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent"></div>
                 
                 <div className="absolute top-20 -left-20 w-64 h-64 bg-primary-500/10 dark:bg-primary-500/5 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-20 -right-20 w-64 h-64 bg-accent-cyan/10 dark:bg-accent-cyan/5 rounded-full blur-3xl"></div>
 
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                        <span className="inline-block px-4 py-2 rounded-full glass-light text-primary-500 text-sm font-medium mb-4">
+                    <div className={`text-center mb-10 sm:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass-light text-primary-500 text-xs sm:text-sm font-medium mb-3 sm:mb-4">
                             Get In Touch
                         </span>
                         <h2 className="section-title">
                             <span className="text-theme-primary">Let's Work </span>
                             <span className="gradient-text">Together</span>
                         </h2>
-                        <p className="section-subtitle">
+                        <p className="section-subtitle text-sm sm:text-lg px-2 sm:px-0">
                             Have a project in mind? I'd love to hear about it. Let's connect and create something amazing.
                         </p>
                     </div>
 
-                    <div className={`grid md:grid-cols-3 gap-6 mb-16 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <div className={`grid md:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-16 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         {contactInfo.map((item, index) => (
                             <a
                                 key={index}
                                 href={item.href}
-                                className="glass rounded-2xl p-6 flex items-center gap-4 card-hover group"
+                                className="glass rounded-xl sm:rounded-2xl p-4 sm:p-6 flex items-center gap-3 sm:gap-4 card-hover group"
                             >
-                                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                                    <item.icon className="text-2xl text-white" />
+                                <div className={`w-10 h-10 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                                    <item.icon className="text-lg sm:text-2xl text-white" />
                                 </div>
-                                <div>
-                                    <div className="text-theme-muted text-sm mb-1">{item.label}</div>
-                                    <div className="text-theme-primary font-medium group-hover:text-primary-500 transition-colors">
+                                <div className="min-w-0 flex-1">
+                                    <div className="text-theme-muted text-xs sm:text-sm mb-0.5 sm:mb-1">{item.label}</div>
+                                    <div className="text-theme-primary font-medium text-sm sm:text-base group-hover:text-primary-500 transition-colors truncate">
                                         {item.value}
                                     </div>
                                 </div>
@@ -91,47 +91,47 @@ function Footer() {
                         ))}
                     </div>
 
-                    <div className={`flex justify-center gap-4 mb-16 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <div className={`flex justify-center gap-3 sm:gap-4 mb-10 sm:mb-16 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         {socialLinks.map((item, index) => (
                             <a
                                 key={index}
                                 href={item.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`w-14 h-14 rounded-xl glass flex items-center justify-center text-theme-secondary transition-all duration-300 ${item.hoverColor}`}
+                                className={`w-11 h-11 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl glass flex items-center justify-center text-theme-secondary transition-all duration-300 ${item.hoverColor}`}
                                 aria-label={item.label}
                             >
-                                <item.icon className="text-2xl" />
+                                <item.icon className="text-xl sm:text-2xl" />
                             </a>
                         ))}
                     </div>
 
-                    <div className={`text-center mb-16 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                        <blockquote className="glass rounded-2xl p-8 max-w-2xl mx-auto">
-                            <p className="text-xl text-theme-secondary italic mb-4">
+                    <div className={`text-center mb-10 sm:mb-16 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <blockquote className="glass rounded-xl sm:rounded-2xl p-5 sm:p-8 max-w-2xl mx-auto">
+                            <p className="text-base sm:text-xl text-theme-secondary italic mb-3 sm:mb-4">
                                 "Code is like humor. When you have to explain it, it's bad."
                             </p>
-                            <cite className="text-primary-500 font-medium">— Cory House</cite>
+                            <cite className="text-primary-500 font-medium text-sm sm:text-base">— Cory House</cite>
                         </blockquote>
                     </div>
 
-                    <div className="h-px bg-gradient-to-r from-transparent via-black/20 dark:via-white/20 to-transparent mb-8"></div>
+                    <div className="h-px bg-gradient-to-r from-transparent via-black/20 dark:via-white/20 to-transparent mb-6 sm:mb-8"></div>
 
-                    <div className={`flex flex-col md:flex-row items-center justify-between gap-4 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <div className={`flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         <a href="#home" className="flex items-center gap-2">
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-accent-cyan flex items-center justify-center text-white font-bold">
+                            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-primary-500 to-accent-cyan flex items-center justify-center text-white font-bold text-sm sm:text-base">
                                 M
                             </div>
-                            <span className="font-heading font-bold text-theme-primary">
+                            <span className="font-heading font-bold text-theme-primary text-sm sm:text-base">
                                 Mahdi<span className="text-primary-500">.</span>
                             </span>
                         </a>
 
-                        <p className="text-theme-muted text-sm flex items-center gap-1">
+                        <p className="text-theme-muted text-xs sm:text-sm flex items-center gap-1 text-center">
                             Made with <HiHeart className="text-red-500 animate-pulse" /> by Mahdi Esmaeelnezhad
                         </p>
 
-                        <p className="text-theme-muted text-sm">
+                        <p className="text-theme-muted text-xs sm:text-sm">
                             © {new Date().getFullYear()} All rights reserved.
                         </p>
                     </div>
@@ -140,12 +140,12 @@ function Footer() {
 
             <button
                 onClick={scrollToTop}
-                className={`fixed bottom-8 right-8 w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 text-white flex items-center justify-center shadow-glow-green transition-all duration-300 z-50 ${
+                className={`fixed bottom-4 right-4 sm:bottom-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 text-white flex items-center justify-center shadow-glow-green transition-all duration-300 z-50 ${
                     showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
                 }`}
                 aria-label="Scroll to top"
             >
-                <HiArrowUp className="text-xl" />
+                <HiArrowUp className="text-lg sm:text-xl" />
             </button>
         </footer>
     );

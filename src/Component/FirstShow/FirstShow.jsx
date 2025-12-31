@@ -38,7 +38,7 @@ function FirstShow() {
     }, [displayText, isDeleting, currentRole]);
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20 pb-8 sm:pb-0">
             <div className="absolute inset-0 bg-theme-primary">
                 <div className="absolute inset-0 bg-hero-pattern opacity-30 dark:opacity-30"></div>
                 
@@ -57,20 +57,20 @@ function FirstShow() {
                             <span className="text-sm text-theme-secondary">Available for opportunities</span>
                         </div>
 
-                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
                             <span className="text-theme-primary">Hi, I'm </span>
                             <span className="gradient-text">Mahdi</span>
-                            <span className="inline-block animate-bounce-slow ml-2">👋</span>
+                            <span className="inline-block animate-bounce-slow ml-1 sm:ml-2">👋</span>
                         </h1>
 
-                        <div className="text-xl sm:text-2xl lg:text-3xl text-theme-secondary mb-8 h-10">
+                        <div className="text-lg sm:text-2xl lg:text-3xl text-theme-secondary mb-6 sm:mb-8 h-8 sm:h-10">
                             <span className="text-primary-500">&lt;</span>
                             <span className="font-mono">{displayText}</span>
                             <span className="animate-blink text-primary-500">|</span>
                             <span className="text-primary-500">/&gt;</span>
                         </div>
 
-                        <p className="text-theme-secondary text-lg max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
+                        <p className="text-theme-secondary text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed px-2 sm:px-0">
                             A passionate <span className="text-primary-500 font-medium">Frontend Developer</span> with 
                             over 5 years of experience crafting beautiful, performant web applications. 
                             Specialized in <span className="text-accent-cyan">React</span> & <span className="text-accent-purple">Vue.js</span> ecosystems.
@@ -117,9 +117,9 @@ function FirstShow() {
 
                     <div className={`flex-shrink-0 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
                         <div className="relative">
-                            <div className="absolute -inset-4 bg-gradient-to-r from-primary-500 via-accent-cyan to-accent-purple rounded-full opacity-20 blur-xl animate-pulse-slow"></div>
+                            <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-primary-500 via-accent-cyan to-accent-purple rounded-full opacity-20 blur-xl animate-pulse-slow"></div>
                             
-                            <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden gradient-border">
+                            <div className="relative w-48 h-48 xs:w-56 xs:h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden gradient-border mx-auto">
                                 <div className="absolute inset-1 rounded-full overflow-hidden bg-theme-secondary">
                                     <img 
                                         src={personalImg} 
@@ -129,15 +129,16 @@ function FirstShow() {
                                 </div>
                             </div>
 
-                            <div className="absolute -bottom-4 -left-4 px-4 py-2 glass rounded-xl animate-float" style={{animationDelay: '0s'}}>
-                                <span className="text-2xl">⚛️</span>
-                                <span className="text-sm text-theme-secondary ml-2">React</span>
+                            {/* Floating badges - hidden on very small screens */}
+                            <div className="hidden sm:block absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 px-3 py-1.5 sm:px-4 sm:py-2 glass rounded-xl animate-float" style={{animationDelay: '0s'}}>
+                                <span className="text-xl sm:text-2xl">⚛️</span>
+                                <span className="text-xs sm:text-sm text-theme-secondary ml-1 sm:ml-2">React</span>
                             </div>
-                            <div className="absolute top-10 -right-4 px-4 py-2 glass rounded-xl animate-float" style={{animationDelay: '1s'}}>
-                                <span className="text-2xl">💚</span>
-                                <span className="text-sm text-theme-secondary ml-2">Vue.js</span>
+                            <div className="hidden sm:block absolute top-6 sm:top-10 -right-2 sm:-right-4 px-3 py-1.5 sm:px-4 sm:py-2 glass rounded-xl animate-float" style={{animationDelay: '1s'}}>
+                                <span className="text-xl sm:text-2xl">💚</span>
+                                <span className="text-xs sm:text-sm text-theme-secondary ml-1 sm:ml-2">Vue.js</span>
                             </div>
-                            <div className="absolute -top-4 left-10 px-4 py-2 glass rounded-xl animate-float" style={{animationDelay: '2s'}}>
+                            <div className="hidden md:block absolute -top-4 left-10 px-4 py-2 glass rounded-xl animate-float" style={{animationDelay: '2s'}}>
                                 <span className="text-2xl">🎨</span>
                                 <span className="text-sm text-theme-secondary ml-2">UI/UX</span>
                             </div>
@@ -145,7 +146,7 @@ function FirstShow() {
                     </div>
                 </div>
 
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+                <div className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 animate-bounce">
                     <span className="text-theme-muted text-sm">Scroll to explore</span>
                     <HiArrowDown className="text-primary-500 text-xl" />
                 </div>

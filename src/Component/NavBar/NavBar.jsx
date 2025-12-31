@@ -15,9 +15,9 @@ const navigation = [
   { name: 'Contact', href: '#contact' },
 ];
 
-const ThemeToggle = ({ isDark, toggleTheme, isMobile = false }) => {
+const ThemeToggle = ({ isDark, toggleTheme }) => {
   return (
-    <div className={`flex items-center gap-1 p-1 rounded-xl glass ${isMobile ? 'w-full justify-center' : ''}`}>
+    <div className="flex items-center gap-1 p-1 rounded-xl glass">
       <button
         onClick={() => !isDark || toggleTheme()}
         className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
@@ -74,12 +74,12 @@ export default function NavBar() {
         {({ open }) => (
           <>
             <div className="container mx-auto px-4">
-              <div className="flex items-center justify-between h-20">
+              <div className="flex items-center justify-between h-16 sm:h-20">
                 <a href="#home" className="flex items-center gap-2 group">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-cyan flex items-center justify-center text-white font-bold text-xl transition-transform duration-300 group-hover:scale-110">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-cyan flex items-center justify-center text-white font-bold text-lg sm:text-xl transition-transform duration-300 group-hover:scale-110">
                     M
                   </div>
-                  <span className="text-xl font-heading font-bold text-theme-primary hidden sm:block">
+                  <span className="text-lg sm:text-xl font-heading font-bold text-theme-primary hidden sm:block">
                     Mahdi<span className="text-primary-500">.</span>
                   </span>
                 </a>
@@ -125,22 +125,35 @@ export default function NavBar() {
                 </div>
 
                 <div className="flex lg:hidden items-center gap-2">
-                  <DisclosureButton className="inline-flex items-center justify-center p-2 rounded-xl text-theme-secondary hover:text-theme-primary hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                  {/* Mobile Theme Toggle - Icon Only */}
+                  <button
+                    onClick={toggleTheme}
+                    className="w-9 h-9 rounded-lg glass flex items-center justify-center transition-all duration-300"
+                    aria-label="Toggle theme"
+                  >
+                    {isDark ? (
+                      <HiSun className="text-lg text-yellow-400" />
+                    ) : (
+                      <HiMoon className="text-lg text-indigo-500" />
+                    )}
+                  </button>
+                  
+                  <DisclosureButton className="inline-flex items-center justify-center p-2 rounded-lg text-theme-secondary hover:text-theme-primary hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
                     <span className="sr-only">Open main menu</span>
-                    {open ? <XMarkIcon className="block h-6 w-6" /> : <Bars3Icon className="block h-6 w-6" />}
+                    {open ? <XMarkIcon className="block h-5 w-5" /> : <Bars3Icon className="block h-5 w-5" />}
                   </DisclosureButton>
                 </div>
               </div>
             </div>
 
             <DisclosurePanel className="lg:hidden glass border-t border-black/10 dark:border-white/10">
-              <div className="px-4 py-4 space-y-2">
+              <div className="px-4 py-3 space-y-1">
                 {navigation.map((item) => (
                   <DisclosureButton
                     key={item.name}
                     as="a"
                     href={item.href}
-                    className={`block px-4 py-3 text-base font-medium rounded-xl transition-all duration-300 ${
+                    className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-300 ${
                       activeSection === item.href.substring(1)
                         ? 'bg-primary-500/20 text-primary-500'
                         : 'text-theme-secondary hover:bg-black/5 dark:hover:bg-white/5 hover:text-theme-primary'
@@ -154,24 +167,19 @@ export default function NavBar() {
                 <DisclosureButton
                   as="button"
                   onClick={() => setShowGame(true)}
-                  className="w-full flex items-center gap-2 px-4 py-3 text-base font-medium rounded-xl transition-all duration-300 text-theme-secondary hover:bg-black/5 dark:hover:bg-white/5 hover:text-theme-primary"
+                  className="w-full flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-300 text-theme-secondary hover:bg-black/5 dark:hover:bg-white/5 hover:text-theme-primary"
                 >
-                  <IoGameController className="text-xl" />
+                  <IoGameController className="text-lg" />
                   <span>Play Game</span>
                   <span className="ml-auto px-2 py-0.5 bg-primary-500/20 text-primary-500 text-xs rounded-full">New</span>
                 </DisclosureButton>
 
-                <div className="pt-2 pb-2">
-                  <p className="text-theme-muted text-sm mb-2 text-center">Select Theme</p>
-                  <ThemeToggle isDark={isDark} toggleTheme={toggleTheme} isMobile={true} />
-                </div>
-
                 <a
                   href={cvFile}
                   download="Mahdi-Esmaeelnezhad-CV.pdf"
-                  className="flex items-center justify-center gap-2 mt-4 px-5 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl"
+                  className="flex items-center justify-center gap-2 mt-3 px-4 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white text-sm font-semibold rounded-lg"
                 >
-                  <HiDownload className="text-lg" />
+                  <HiDownload className="text-base" />
                   <span>Download CV</span>
                 </a>
               </div>
