@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Mahdi Esmaeelnezhad — CV</title>
+<style>
+  :root {
+    --navy: #1e3a5f;
+    --navy-deep: #152a45;
+    --navy-soft: #e8eef6;
+    --ink: #1a2433;
+    --muted: #5b6778;
+    --faint: #8a94a4;
+    --line: #dce3ee;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page { size: A4; margin: 0; }
+
+  html, body {
+    font-family: 'Helvetica Neue', Inter, Arial, sans-serif;
+    color: var(--ink);
+    font-size: 9.5pt;
+    line-height: 1.45;
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  a { color: var(--navy); text-decoration: none; }
+
+  .sheet {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    page-break-after: always;
+    position: relative;
+  }
+
+  .sheet:last-child { page-break-after: auto; }
+
+  /* ---------- page 1 layout ---------- */
+  .layout {
+    display: flex;
+    height: 100%;
+  }
+
+  .sidebar {
+    width: 68mm;
+    background: var(--navy);
+    color: #fff;
+    padding: 16mm 8mm 12mm;
+  }
+
+  .photo-wrap {
+    width: 46mm;
+    height: 46mm;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255,255,255,0.85);
+    background: #00bcd4;
+  }
+
+  .photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 18%;
+  }
+
+  .side-name {
+    text-align: center;
+    font-size: 13pt;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .side-role {
+    text-align: center;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #c5d4ea;
+    margin-bottom: 16px;
+  }
+
+  .side-h {
+    font-size: 8.4pt;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.22);
+    padding-bottom: 4px;
+    margin: 16px 0 8px;
+  }
+
+  .side-item {
+    font-size: 8pt;
+    color: #e4ebf4;
+    margin-bottom: 7px;
+    line-height: 1.35;
+  }
+
+  .side-item strong {
+    display: block;
+    font-size: 7.4pt;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9fb4d0;
+    font-weight: 700;
+    margin-bottom: 1px;
+  }
+
+  .side-item a { color: #fff; }
+
+  .chip-list { display: flex; flex-wrap: wrap; gap: 4px; }
+
+  .chip {
+    font-size: 7.2pt;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+    padding: 2px 7px;
+    color: #eef3f9;
+  }
+
+  .main {
+    flex: 1;
+    padding: 12mm 11mm 10mm 10mm;
+  }
+
+  h2 {
+    font-size: 10pt;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    border-bottom: 1.5px solid var(--navy);
+    padding-bottom: 3px;
+    margin: 0 0 8px;
+  }
+
+  section { margin-bottom: 11px; }
+
+  .summary { color: var(--muted); font-size: 9.3pt; }
+
+  .job { margin-bottom: 9px; }
+
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .job-head h3 { font-size: 10pt; font-weight: 700; }
+
+  .company { color: var(--navy); }
+
+  .job-meta {
+    font-size: 7.8pt;
+    color: var(--faint);
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  .job-note {
+    font-size: 8pt;
+    color: var(--faint);
+    margin: 1px 0 3px;
+  }
+
+  ul.bullets { list-style: none; }
+
+  ul.bullets li {
+    position: relative;
+    padding-left: 11px;
+    color: var(--muted);
+    font-size: 8.8pt;
+    margin-bottom: 1.5px;
+  }
+
+  ul.bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--navy);
+  }
+
+  .tech {
+    font-size: 7.8pt;
+    color: var(--faint);
+    margin-top: 2px;
+  }
+
+  .tech strong { color: var(--muted); font-weight: 600; }
+
+  /* ---------- page 2 ---------- */
+  .page-bar {
+    height: 14mm;
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12mm;
+  }
+
+  .page-bar b { font-size: 11pt; letter-spacing: 0.02em; }
+  .page-bar span { font-size: 8pt; color: #c5d4ea; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .page-body { padding: 10mm 13mm 12mm; }
+
+  .project { margin-bottom: 9px; }
+  .project h3 { font-size: 10pt; font-weight: 700; }
+  .project p { color: var(--muted); font-size: 9pt; margin: 2px 0 2px; }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .info-card {
+    background: var(--navy-soft);
+    border: 1px solid #cfd9e8;
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+
+  .info-card strong {
+    display: block;
+    font-size: 7.4pt;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .info-card span { color: var(--muted); font-size: 8.8pt; }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="photo-wrap">
+        <img src="photo.png" alt="Mahdi Esmaeelnezhad" />
+      </div>
+      <div class="side-name">Mahdi<br>Esmaeelnezhad</div>
+      <div class="side-role">Frontend / Full-Stack</div>
+
+      <div class="side-h">Contact</div>
+      <div class="side-item"><strong>Location</strong>Mashhad, Iran</div>
+      <div class="side-item"><strong>Phone</strong><a href="tel:+989126381582">+98 912 638 1582</a></div>
+      <div class="side-item"><strong>Email</strong><a href="mailto:mahdiesmaeelnezhad7@gmail.com">mahdiesmaeelnezhad7@gmail.com</a></div>
+      <div class="side-item"><strong>GitHub</strong><a href="https://github.com/mahdi-esmaeelnezhad">github.com/mahdi-esmaeelnezhad</a></div>
+      <div class="side-item"><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/mahdi-esmaeilnezhad-173982207">linkedin.com/in/mahdi-esmaeilnezhad</a></div>
+      <div class="side-item"><strong>Website</strong><a href="https://mahdi-esmaeelnezhad.vercel.app/">mahdi-esmaeelnezhad.vercel.app</a></div>
+
+      <div class="side-h">Skills</div>
+      <div class="side-item"><strong>Frontend</strong></div>
+      <div class="chip-list">
+        <span class="chip">React</span><span class="chip">Vue.js</span><span class="chip">Nuxt</span>
+        <span class="chip">Angular</span><span class="chip">Next.js</span><span class="chip">TypeScript</span>
+        <span class="chip">React Native</span><span class="chip">Flutter</span><span class="chip">MUI</span>
+        <span class="chip">Tailwind</span>
+      </div>
+      <div class="side-item" style="margin-top:8px"><strong>Backend</strong></div>
+      <div class="chip-list">
+        <span class="chip">Node.js</span><span class="chip">Python</span><span class="chip">Go</span>
+        <span class="chip">C#</span><span class="chip">Blazor</span><span class="chip">REST</span>
+        <span class="chip">WebSocket</span>
+      </div>
+      <div class="side-item" style="margin-top:8px"><strong>Data &amp; Tools</strong></div>
+      <div class="chip-list">
+        <span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">SQL</span>
+        <span class="chip">Git</span><span class="chip">Docker</span><span class="chip">Redis</span>
+      </div>
+
+      <div class="side-h">Languages</div>
+      <div class="side-item">Persian — Native</div>
+      <div class="side-item">English — Professional working</div>
+    </aside>
+
+    <main class="main">
+      <section>
+        <h2>Profile</h2>
+        <p class="summary">
+          Developer with 5+ years of hands-on experience building web applications.
+          Main focus is frontend with React, Vue.js, and TypeScript, plus practical backend work with Node.js and Blazor.
+          Work history includes education, logistics, retail, and tourism products in Iran.
+        </p>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+
+        <div class="job">
+          <div class="job-head">
+            <h3>Frontend Team Lead — <span class="company">Tipax</span></h3>
+            <span class="job-meta">Aug 2025 — Aug 2026</span>
+          </div>
+          <div class="job-note">Representatives Management Panel · Mashhad, Iran</div>
+          <ul class="bullets">
+            <li>Worked on the Tipax representatives management panel with React, TypeScript, and Material UI.</li>
+            <li>Helped define reusable components and state management patterns for the frontend team.</li>
+          </ul>
+          <div class="tech"><strong>Tech:</strong> React · TypeScript · Material UI</div>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <h3>Senior Frontend Developer — <span class="company">Tosan Techno</span></h3>
+            <span class="job-meta">Mar 2025 — Aug 2026</span>
+          </div>
+          <div class="job-note">Refah Barcode Scanner App · Mashhad, Iran</div>
+          <ul class="bullets">
+            <li>Developed frontend screens for a barcode scanner application used in Refah retail stores.</li>
+            <li>Worked on real-time communication between scanners, POS devices, and payment systems.</li>
+          </ul>
+          <div class="tech"><strong>Tech:</strong> React · WebSocket · Real-time</div>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <h3>Frontend Developer — <span class="company">3click (Deltaban)</span></h3>
+            <span class="job-meta">Mar 2024 — Jun 2025</span>
+          </div>
+          <div class="job-note">B2C Platform · Mashhad, Iran</div>
+          <ul class="bullets">
+            <li>Built and maintained web apps with Vue.js and Nuxt.</li>
+            <li>Took part in migrating from Nuxt 2 to Nuxt 3 and improving performance and SEO.</li>
+          </ul>
+          <div class="tech"><strong>Tech:</strong> Vue.js · Nuxt 2/3 · SEO · Performance</div>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <h3>Full-Stack Developer — <span class="company">TopTours</span></h3>
+            <span class="job-meta">Feb 2023 — Feb 2024</span>
+          </div>
+          <div class="job-note">Custom CMS Platform · Mashhad, Iran</div>
+          <ul class="bullets">
+            <li>Built a drag-and-drop frontend builder interface with React.</li>
+            <li>Connected the builder UI with a Blazor Server admin panel and backend services.</li>
+          </ul>
+          <div class="tech"><strong>Tech:</strong> React · Blazor Server · Drag &amp; Drop</div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="sheet">
+  <div class="page-bar">
+    <b>Mahdi Esmaeelnezhad</b>
+    <span>Frontend / Full-Stack Developer</span>
+  </div>
+  <div class="page-body">
+    <section>
+      <h2>Work Experience</h2>
+
+      <div class="job">
+        <div class="job-head">
+          <h3>Frontend Developer — <span class="company">Kanoon Ghalamchi</span></h3>
+          <span class="job-meta">Sep 2022 — Apr 2023</span>
+        </div>
+        <div class="job-note">Educational Platform · Mashhad, Iran</div>
+        <ul class="bullets">
+          <li>Worked on the school website and management panel with React.</li>
+          <li>Improved UI flows and integration with backend APIs.</li>
+        </ul>
+        <div class="tech"><strong>Tech:</strong> React · REST API</div>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <h3>Frontend Developer — <span class="company">Mabna Intelligent Computing</span></h3>
+          <span class="job-meta">Mar 2021 — Jul 2022</span>
+        </div>
+        <div class="job-note">Amirkabir University · Mashhad, Iran</div>
+        <ul class="bullets">
+          <li>Developed React apps for transportation and petrochemical use cases.</li>
+          <li>Implemented a multi-format file uploader with preview (images, PDF, Word).</li>
+        </ul>
+        <div class="tech"><strong>Tech:</strong> React · File Upload · PDF Preview</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Selected Projects</h2>
+
+      <div class="project">
+        <h3>Orbit Task Platform — <a href="https://github.com/mahdi-esmaeelnezhad/orbit-task-platform">GitHub</a></h3>
+        <p>Team project and task management backend with JWT authentication, Redis caching, Swagger docs, and Docker Compose.</p>
+        <div class="tech"><strong>Tech:</strong> Node.js · JWT · Redis · Swagger · Docker Compose</div>
+      </div>
+
+      <div class="project">
+        <h3>Angular Smart Table Pro — <a href="https://github.com/mahdi-esmaeelnezhad/ngx-smart-table-pro">GitHub</a></h3>
+        <p>Angular data table library with virtual scroll, server-side datasource support, drag-and-drop, and Excel export.</p>
+        <div class="tech"><strong>Tech:</strong> Angular · Virtual Scroll · Excel Export · Drag &amp; Drop</div>
+      </div>
+
+      <div class="project">
+        <h3>ConfigKit — <a href="https://github.com/mahdi-esmaeelnezhad/configkit">GitHub</a></h3>
+        <p>Type-safe Go configuration library for JSON, YAML, TOML, and ENV with hot reload and validation.</p>
+        <div class="tech"><strong>Tech:</strong> Go · JSON · YAML · TOML · ENV · Hot Reload</div>
+      </div>
+
+      <div class="project">
+        <h3>Job Crawler Suite — <a href="https://github.com/mahdi-esmaeelnezhad/crawl-py">GitHub</a></h3>
+        <p>Python toolkit for crawling job listings from multiple Iranian job platforms and exporting results to Excel.</p>
+        <div class="tech"><strong>Tech:</strong> Python · Web Scraping · Excel Export</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Additional Information</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <strong>Location</strong>
+          <span>Mashhad, Iran</span>
+        </div>
+        <div class="info-card">
+          <strong>Date of birth</strong>
+          <span>April 1999</span>
+        </div>
+        <div class="info-card">
+          <strong>Languages</strong>
+          <span>Persian · English</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+</body>
+</html>
