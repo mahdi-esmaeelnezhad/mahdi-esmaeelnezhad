@@ -1,11 +1,15 @@
 {
-  "name": "pouya-mohammadkhani",
+  "name": "mahdi-esmaeelnezhad",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
+    "typecheck": "tsc -b --pretty",
     "lint": "oxlint",
     "preview": "vite preview"
   },
