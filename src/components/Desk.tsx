@@ -8,7 +8,7 @@ const CODE = `function App() {
     <Site
       name="Mahdi"
       role="Senior Frontend"
-      stack={['React', 'TypeScript', 'MUI']}
+      stack={['React', 'Next.js', 'Tailwind']}
     />
   )
 }`;

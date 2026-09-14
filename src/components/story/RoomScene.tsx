@@ -57,7 +57,7 @@ export function RoomScene() {
           <h1 className="rc-name">
             MAHDI <span>ESMAEELNEZHAD</span>
           </h1>
-          <p className="rc-role">Senior Frontend Developer · Mashhad, Iran</p>
+          <p className="rc-role">Senior Frontend Developer · React · Next.js · Tailwind</p>
           <div className="rc-scroll">
             <span className="rc-mouse" />
             scroll to enter the screen

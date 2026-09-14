@@ -150,7 +150,7 @@ const en: Dict = {
     greeting: "Hi, I'm",
     role: 'Senior Frontend Developer',
     tagline:
-      'I design and build scalable product user interfaces with React.js, TypeScript, and Material UI — plus strong state management with Redux and Context API. 5+ years shipping frontend for logistics, retail, tourism, and education teams in Tehran.',
+      'I design and build scalable product user interfaces with React.js, Next.js, TypeScript, and Tailwind CSS — plus Material UI and strong state management with Redux and Context API. 5+ years shipping frontend for logistics, retail, tourism, and education teams in Tehran.',
     viewProjects: 'View Projects',
     contactMe: 'Contact Me',
     downloadCV: 'Download CV',
@@ -164,21 +164,21 @@ const en: Dict = {
   },
   about: {
     title: 'About Me',
-    subtitle: 'Senior Frontend Developer focused on React excellence',
+    subtitle: 'Senior Frontend Developer focused on React, Next.js & Tailwind',
     paragraphs: [
-      'I am a Senior Frontend Developer with 5+ years of hands-on experience designing, developing, and documenting product user interfaces. My core stack is React.js, TypeScript, JavaScript, HTML, and CSS, with production work in Material UI, Redux, and Context API.',
+      'I am a Senior Frontend Developer with 5+ years of hands-on experience designing, developing, and documenting product user interfaces. My core stack is React.js, Next.js, TypeScript, JavaScript, HTML, and CSS, with production work in Tailwind CSS, Material UI, Redux, and Context API.',
       'My work history spans logistics, retail, tourism, and education products in Tehran — from barcode scanner apps and CMS builders to management panels and transportation systems. Based in Mashhad and open to remote collaboration.',
       'I lead reusable component libraries, improve performance and SEO, run code reviews, write technical documentation, and connect polished UIs with reliable REST APIs and real-time services.',
     ],
     highlights: [
-      { icon: '🚀', title: '5+ Years', desc: 'Shipping production React user interfaces end to end' },
-      { icon: '⚛️', title: 'Frontend Lead', desc: 'Reusable components, Redux / Context API, Material UI' },
-      { icon: '🧩', title: 'UI Architecture', desc: 'Readable, maintainable React codebases across products' },
+      { icon: '🚀', title: '5+ Years', desc: 'Shipping production React and Next.js user interfaces end to end' },
+      { icon: '⚛️', title: 'Frontend Lead', desc: 'React · Next.js · Tailwind · Material UI · Redux' },
+      { icon: '🧩', title: 'UI Architecture', desc: 'Readable, maintainable React / Next.js codebases across products' },
       { icon: '🌍', title: 'Mashhad, Iran', desc: 'Worked in Tehran · Persian native · English professional' },
     ],
     lookingForTitle: 'What I bring',
     lookingFor:
-      'Senior React craftsmanship, teamwork and collaboration, attention to detail, and a track record of delivering UI products on time — from prototypes and wireframes to production, troubleshooting, and technical documentation.',
+      'Senior React and Next.js craftsmanship with Tailwind CSS, teamwork and collaboration, attention to detail, and a track record of delivering UI products on time — from prototypes and wireframes to production, troubleshooting, and technical documentation.',
   },
   skills: {
     title: 'Skills & Tech Stack',
@@ -304,13 +304,13 @@ const en: Dict = {
     items: [
       {
         icon: '⚛️',
-        title: 'React UI Development',
-        desc: 'Scalable React.js and TypeScript interfaces with Material UI, Redux, Context API, HTML, and CSS.',
+        title: 'React & Next.js UI',
+        desc: 'Scalable React.js and Next.js interfaces with TypeScript, Tailwind CSS, Material UI, Redux, and Context API.',
       },
       {
         icon: '🧱',
         title: 'Reusable Components',
-        desc: 'Component libraries and design-system patterns that stay readable and reusable across projects.',
+        desc: 'Component libraries and design-system patterns with Tailwind and Material UI that stay readable across projects.',
       },
       {
         icon: '📱',
@@ -362,7 +362,7 @@ const en: Dict = {
     title: 'Get In Touch',
     subtitle: "Let's build something great together",
     intro:
-      "Whether you have a Senior Frontend role, a React product challenge, or just want to connect — my inbox is always open. Based in Mashhad, previously shipping from Tehran teams, and happy to collaborate remotely.",
+      "Whether you have a Senior Frontend role, a React / Next.js product challenge, or just want to connect — my inbox is always open. Based in Mashhad, previously shipping from Tehran teams, and happy to collaborate remotely.",
     emailLabel: 'Email',
     phoneLabel: 'Phone',
     locationLabel: 'Location',
@@ -377,14 +377,14 @@ const en: Dict = {
   },
   footer: {
     rights: 'All rights reserved.',
-    built: 'Designed & built with React + TypeScript · Senior Frontend Developer',
+    built: 'Designed & built with React, Next.js & Tailwind · Senior Frontend Developer',
   },
   story: {
     bootKicker: 'MAHDI OS  ·  v5.2',
     bootLines: [
       'Loading kernel…',
-      'Mounting React / TypeScript / Material UI…',
-      'Starting Redux + Context runtimes…',
+      'Mounting React / Next.js / TypeScript…',
+      'Starting Tailwind + Redux runtimes…',
       'Hydrating UI…',
     ],
     bootDone: 'Welcome, visitor.',
@@ -392,7 +392,7 @@ const en: Dict = {
     clock: '11:47 PM',
     deskTitle: 'A quiet room. One more deploy.',
     deskCaption:
-      'Senior Frontend Developer. Mashhad, Iran. Worked in Tehran. The monitor is still on.',
+      'Senior Frontend Developer. React · Next.js · Tailwind. Mashhad, Iran. Worked in Tehran. The monitor is still on.',
     ideTitle: 'Keep scrolling. The editor becomes the product.',
     buildCmd: 'pnpm build && deploy --prod',
     building: 'Building…',
@@ -402,7 +402,7 @@ const en: Dict = {
     debug: ['console.log()', 'debugger', 'fix', '✓ All tests passed'],
     hunt: "I don't avoid bugs. I hunt them.",
     archTitle: 'Then zoom out.',
-    archCaption: 'React UI, APIs, state — one frontend system, many products.',
+    archCaption: 'React, Next.js, Tailwind, APIs, state — one frontend system, many products.',
     teamTitle: 'From writing code to leading frontend teams.',
     teamCaption: 'Team lead at Tipax. Reusable patterns. Shipped anyway.',
     messages: [
@@ -414,7 +414,7 @@ const en: Dict = {
     termWho: 'whoami',
     termSkills: 'cat skills.txt',
     termOpen: 'open contact',
-    endTitle: 'The next frontend project could be ours.',
+    endTitle: 'The next React / Next.js project could be ours.',
     endCta: "Let's talk",
   },
 };
