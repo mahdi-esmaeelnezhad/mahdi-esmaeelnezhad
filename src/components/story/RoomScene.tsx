@@ -55,9 +55,9 @@ export function RoomScene() {
         <div className="room-caption" style={{ opacity: captionFade }}>
           <p className="rc-kicker">A NIGHT IN THE LIFE OF A DEVELOPER</p>
           <h1 className="rc-name">
-            POUYA <span>MOHAMMADKHANI</span>
+            MAHDI <span>ESMAEELNEZHAD</span>
           </h1>
-          <p className="rc-role">Senior Full-Stack Engineer · Cork, Ireland</p>
+          <p className="rc-role">Senior Frontend Developer · Mashhad, Iran</p>
           <div className="rc-scroll">
             <span className="rc-mouse" />
             scroll to enter the screen

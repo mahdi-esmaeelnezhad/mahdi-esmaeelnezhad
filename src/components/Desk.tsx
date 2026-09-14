@@ -7,7 +7,8 @@ const CODE = `function App() {
   return (
     <Site
       name="Mahdi"
-      stack={['React', 'Vue', 'Node']}
+      role="Senior Frontend"
+      stack={['React', 'TypeScript', 'MUI']}
     />
   )
 }`;

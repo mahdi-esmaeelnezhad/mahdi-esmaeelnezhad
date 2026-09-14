@@ -145,12 +145,12 @@ const en: Dict = {
     contact: 'Contact',
   },
   hero: {
-    badge: 'Frontend & Full-Stack Developer',
+    badge: 'Senior Frontend Developer',
     location: 'Mashhad, Iran',
     greeting: "Hi, I'm",
-    role: 'Frontend / Full-Stack Developer',
+    role: 'Senior Frontend Developer',
     tagline:
-      'I build web applications with React, Vue.js, and TypeScript — plus practical backend work with Node.js and Blazor. 5+ years across education, logistics, retail, and tourism products.',
+      'I design and build scalable product user interfaces with React.js, TypeScript, and Material UI — plus strong state management with Redux and Context API. 5+ years shipping frontend for logistics, retail, tourism, and education teams in Tehran.',
     viewProjects: 'View Projects',
     contactMe: 'Contact Me',
     downloadCV: 'Download CV',
@@ -164,21 +164,21 @@ const en: Dict = {
   },
   about: {
     title: 'About Me',
-    subtitle: 'Developer focused on frontend excellence',
+    subtitle: 'Senior Frontend Developer focused on React excellence',
     paragraphs: [
-      'I am a developer with 5+ years of hands-on experience building web applications. My main focus is frontend with React, Vue.js, and TypeScript, plus practical backend work with Node.js and Blazor.',
-      'My work history spans education, logistics, retail, and tourism products in Iran — from barcode scanner apps and CMS platforms to school management panels and transportation systems.',
-      'I enjoy defining reusable components, improving performance and SEO, and connecting polished UIs with reliable backend services.',
+      'I am a Senior Frontend Developer with 5+ years of hands-on experience designing, developing, and documenting product user interfaces. My core stack is React.js, TypeScript, JavaScript, HTML, and CSS, with production work in Material UI, Redux, and Context API.',
+      'My work history spans logistics, retail, tourism, and education products in Tehran — from barcode scanner apps and CMS builders to management panels and transportation systems. Based in Mashhad and open to remote collaboration.',
+      'I lead reusable component libraries, improve performance and SEO, run code reviews, write technical documentation, and connect polished UIs with reliable REST APIs and real-time services.',
     ],
     highlights: [
-      { icon: '🚀', title: '5+ Years', desc: 'Building production web applications end to end' },
-      { icon: '⚛️', title: 'Frontend Lead', desc: 'Leading component patterns and state management' },
-      { icon: '🔗', title: 'Full-Stack', desc: 'React frontends connected to Node.js and Blazor backends' },
-      { icon: '🌍', title: 'Mashhad, Iran', desc: 'Persian native · English professional working level' },
+      { icon: '🚀', title: '5+ Years', desc: 'Shipping production React user interfaces end to end' },
+      { icon: '⚛️', title: 'Frontend Lead', desc: 'Reusable components, Redux / Context API, Material UI' },
+      { icon: '🧩', title: 'UI Architecture', desc: 'Readable, maintainable React codebases across products' },
+      { icon: '🌍', title: 'Mashhad, Iran', desc: 'Worked in Tehran · Persian native · English professional' },
     ],
     lookingForTitle: 'What I bring',
     lookingFor:
-      'Strong frontend craftsmanship with React and Vue, real-time system experience, CMS builder expertise, and a track record of shipping products across multiple industries.',
+      'Senior React craftsmanship, teamwork and collaboration, attention to detail, and a track record of delivering UI products on time — from prototypes and wireframes to production, troubleshooting, and technical documentation.',
   },
   skills: {
     title: 'Skills & Tech Stack',
@@ -227,60 +227,61 @@ const en: Dict = {
   },
   experience: {
     title: 'Work Experience',
-    subtitle: 'Where I have made an impact',
+    subtitle: 'Frontend impact across Tehran product teams',
     items: {
       tipax: {
         role: 'Frontend Team Lead',
         company: 'Tipax Representatives Management Panel',
-        note: 'Logistics · Full-time',
+        note: 'Logistics · Full-time · Tehran',
         bullets: [
-          'Working on the Tipax representatives management panel with React, TypeScript, and Material UI.',
-          'Helped define reusable components and state management patterns for the frontend team.',
+          'Designed and developed scalable React.js / TypeScript user interfaces with Material UI for the Tipax representatives management panel.',
+          'Built reusable React components and defined Redux / Context API state patterns used across multiple screens by the frontend team.',
+          'Led code reviews, technical assistance, and improvements to workflows, toolchain, and technical documentation.',
         ],
       },
       refah: {
         role: 'Senior Frontend Developer',
         company: 'Refah Barcode Scanner App (Tosan Techno)',
-        note: 'Retail · Full-time',
+        note: 'Retail · Full-time · Tehran',
         bullets: [
-          'Developed frontend screens for a barcode scanner application used in Refah retail stores.',
-          'Worked on real-time communication between scanners, POS devices, and payment systems.',
+          'Developed React.js user interfaces for a barcode scanner application used in Refah retail stores.',
+          'Implemented real-time HTTP / WebSocket flows between scanners, POS devices, and payment systems; verified integrations with Postman and Chrome DevTools.',
         ],
       },
       threeclick: {
         role: 'Frontend Developer',
         company: '3click (Deltaban)',
-        note: 'B2C Platform · Full-time',
+        note: 'B2C Platform · Full-time · Tehran',
         bullets: [
-          'Built and maintained web apps with Vue.js and Nuxt.',
-          'Took part in migrating from Nuxt 2 to Nuxt 3 and improving performance and SEO.',
+          'Built and maintained production user interfaces with Vue.js, Nuxt, HTML, and CSS for a B2C travel platform.',
+          'Migrated Nuxt 2 to Nuxt 3 and improved performance and SEO of the shared component layer.',
         ],
       },
       toptours: {
         role: 'Full-Stack Developer',
         company: 'TopTours Custom CMS Platform',
-        note: 'Tourism · Full-time',
+        note: 'Tourism · Full-time · Tehran',
         bullets: [
-          'Built a drag-and-drop frontend builder interface with React.',
-          'Connected the builder UI with a Blazor Server admin panel and backend services.',
+          'Implemented React.js prototypes and a drag-and-drop frontend builder from wireframes and UI/UX designs.',
+          'Connected the React UI to a Blazor Server admin panel over REST APIs and documented complex builder behavior.',
         ],
       },
       kanoon: {
         role: 'Frontend Developer',
         company: 'Kanoon Ghalamchi Educational Platform',
-        note: 'Education · Full-time',
+        note: 'Education · Full-time · Tehran',
         bullets: [
-          'Worked on the school website and management panel with React.',
-          'Improved UI flows and integration with backend APIs.',
+          'Developed React.js screens for the school website and management panel with strong attention to detail.',
+          'Improved UI flows and REST API integration for content and school-management workflows.',
         ],
       },
       mabna: {
         role: 'Frontend Developer',
         company: 'Mabna Intelligent Computing (Amirkabir University)',
-        note: 'Transportation & Petrochemical · Full-time',
+        note: 'Transportation & Petrochemical · Full-time · Tehran',
         bullets: [
-          'Developed React apps for transportation and petrochemical use cases.',
-          'Implemented a multi-format file uploader with preview (images, PDF, Word).',
+          'Developed React applications for transportation and petrochemical use cases.',
+          'Implemented a multi-format file uploader with preview for images, PDF, and Word documents.',
         ],
       },
     },
@@ -288,41 +289,48 @@ const en: Dict = {
   education: {
     title: 'Education',
     subtitle: 'Academic background',
-    items: [],
+    items: [
+      {
+        degree: 'B.Sc. in Software Engineering',
+        school: 'Islamic Azad University, Science and Research Branch',
+        period: 'Tehran, Iran',
+        desc: 'Bachelor’s degree in Software Engineering with focus on software design, programming, and building production web applications.',
+      },
+    ],
   },
   services: {
     title: 'What I Do',
-    subtitle: 'How I can help your team',
+    subtitle: 'How I help product teams as a Senior Frontend Developer',
     items: [
       {
         icon: '⚛️',
-        title: 'Frontend Development',
-        desc: 'React, Vue.js, Nuxt, Angular, and Next.js interfaces with TypeScript and modern UI libraries.',
+        title: 'React UI Development',
+        desc: 'Scalable React.js and TypeScript interfaces with Material UI, Redux, Context API, HTML, and CSS.',
       },
       {
-        icon: '🔗',
-        title: 'Full-Stack Development',
-        desc: 'End-to-end features with Node.js, Blazor, and Python — from API to UI.',
+        icon: '🧱',
+        title: 'Reusable Components',
+        desc: 'Component libraries and design-system patterns that stay readable and reusable across projects.',
       },
       {
         icon: '📱',
-        title: 'Real-Time Systems',
-        desc: 'WebSocket integrations for scanners, POS devices, and live data flows.',
+        title: 'Real-Time Interfaces',
+        desc: 'WebSocket and REST API integrations for scanners, POS devices, and live operational UIs.',
       },
       {
         icon: '⚡',
         title: 'Performance & SEO',
-        desc: 'Nuxt migrations, bundle optimization, and measurable speed improvements.',
+        desc: 'Nuxt migrations, bundle optimization, and frontend performance improvements.',
       },
       {
-        icon: '🏗️',
-        title: 'CMS & Builders',
-        desc: 'Drag-and-drop page builders and admin panels connected to backend services.',
+        icon: '📝',
+        title: 'Technical Documentation',
+        desc: 'Architecture notes, setup guides, and clear explanations of complex UI code across the SDLC.',
       },
       {
         icon: '🧭',
-        title: 'Team Leadership',
-        desc: 'Reusable component patterns, state management standards, and frontend architecture.',
+        title: 'Frontend Leadership',
+        desc: 'Code reviews, mentoring, workflow/toolchain improvements, and shipping on time under pressure.',
       },
     ],
   },
@@ -330,7 +338,7 @@ const en: Dict = {
     title: 'Open Source',
     subtitle: 'Projects I build and share on GitHub',
     statement:
-      'Beyond client work, I maintain open-source tools — from Angular libraries and Go config utilities to Python crawlers and Node.js backends.',
+      'Beyond client work, I maintain open-source tools that sharpen the same craft I use as a Senior Frontend Developer — reusable UI libraries, APIs, and developer tooling.',
     statLabels: {
       projects: 'Open source projects',
       years: 'Years of experience',
@@ -354,7 +362,7 @@ const en: Dict = {
     title: 'Get In Touch',
     subtitle: "Let's build something great together",
     intro:
-      "Whether you have a project, a role, or just want to connect — my inbox is always open. Based in Mashhad and happy to collaborate remotely.",
+      "Whether you have a Senior Frontend role, a React product challenge, or just want to connect — my inbox is always open. Based in Mashhad, previously shipping from Tehran teams, and happy to collaborate remotely.",
     emailLabel: 'Email',
     phoneLabel: 'Phone',
     locationLabel: 'Location',
@@ -369,14 +377,14 @@ const en: Dict = {
   },
   footer: {
     rights: 'All rights reserved.',
-    built: 'Designed & built with React + TypeScript',
+    built: 'Designed & built with React + TypeScript · Senior Frontend Developer',
   },
   story: {
     bootKicker: 'MAHDI OS  ·  v5.2',
     bootLines: [
       'Loading kernel…',
-      'Mounting React / Vue / Angular…',
-      'Starting Node + Blazor runtimes…',
+      'Mounting React / TypeScript / Material UI…',
+      'Starting Redux + Context runtimes…',
       'Hydrating UI…',
     ],
     bootDone: 'Welcome, visitor.',
@@ -384,7 +392,7 @@ const en: Dict = {
     clock: '11:47 PM',
     deskTitle: 'A quiet room. One more deploy.',
     deskCaption:
-      'Frontend / full-stack developer. Mashhad, Iran. The monitor is still on.',
+      'Senior Frontend Developer. Mashhad, Iran. Worked in Tehran. The monitor is still on.',
     ideTitle: 'Keep scrolling. The editor becomes the product.',
     buildCmd: 'pnpm build && deploy --prod',
     building: 'Building…',
@@ -394,7 +402,7 @@ const en: Dict = {
     debug: ['console.log()', 'debugger', 'fix', '✓ All tests passed'],
     hunt: "I don't avoid bugs. I hunt them.",
     archTitle: 'Then zoom out.',
-    archCaption: 'Frontend, API, data — one system, many stacks.',
+    archCaption: 'React UI, APIs, state — one frontend system, many products.',
     teamTitle: 'From writing code to leading frontend teams.',
     teamCaption: 'Team lead at Tipax. Reusable patterns. Shipped anyway.',
     messages: [
@@ -406,7 +414,7 @@ const en: Dict = {
     termWho: 'whoami',
     termSkills: 'cat skills.txt',
     termOpen: 'open contact',
-    endTitle: 'The next project could be ours.',
+    endTitle: 'The next frontend project could be ours.',
     endCta: "Let's talk",
   },
 };
